@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% if test is not null %}
+        {{ component('InvoiceForm' ~ test, { form, invoice }) }}
+    {% else %}
+        <a href="{{ path('index', { test: 1 }) }}">test 1</a><br>
+        <a href="{{ path('index', { test: 2 }) }}">test 2</a><br>
+        <a href="{{ path('index', { test: 3 }) }}">test 3</a>
+    {% endif %}
+{% endblock %}
