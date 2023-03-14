@@ -23,7 +23,7 @@ final class TodoListType extends AbstractType
 
     public function getBlockPrefix(): string
     {
-        return ''; // damn me
+        return '';
     }
 
     public function configureOptions(OptionsResolver $resolver): void

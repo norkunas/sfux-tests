@@ -6,5 +6,8 @@ namespace App\DTO;
 
 final class TodoListItem
 {
+    /**
+     * @var string
+     */
     public $title;
 }

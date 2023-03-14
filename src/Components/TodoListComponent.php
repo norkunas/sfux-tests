@@ -8,6 +8,8 @@ use App\DTO\TodoList;
 use App\Form\Type\TodoListType;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\Form\FormInterface;
+use Symfony\Component\Serializer\Annotation\Context;
+use Symfony\Component\Serializer\Normalizer\AbstractObjectNormalizer;
 use Symfony\UX\LiveComponent\Attribute\AsLiveComponent;
 use Symfony\UX\LiveComponent\Attribute\LiveProp;
 use Symfony\UX\LiveComponent\ComponentWithFormTrait;
@@ -21,7 +23,8 @@ final class TodoListComponent
     use DefaultActionTrait;
     use LiveCollectionTrait;
 
-    #[LiveProp]
+    #[LiveProp(fieldName: 'data')]
+    #[Context([AbstractObjectNormalizer::DISABLE_TYPE_ENFORCEMENT => true])]
     public TodoList $list;
 
     public function __construct(
